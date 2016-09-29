@@ -1,0 +1,26 @@
+{
+    "name": "jpc/design-pattern",
+    "description": "Simple Design Patter integration",
+    "type": "library",
+    "require": {
+        "php": ">=5.4"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "*"
+    },
+    "authors": [
+        {
+            "name": "Joffrey Poree",
+            "email": "contact@joffreyporee.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "JPC\\DesignPattern\\": "src/"
+        },
+        "psr-0": {
+            "JPC\\DesignPattern\\": "src/"
+        }
+    }
+}
