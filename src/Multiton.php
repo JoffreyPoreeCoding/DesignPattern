@@ -13,7 +13,10 @@ trait Multiton {
             $constructor = $reflection->getConstructor();
             
             $object = $reflection->newInstanceWithoutConstructor();
-            $constructor->invokeArgs($object, $params);
+            
+            if ($constructor != null) {
+                $constructor->invokeArgs($object, $params);
+            }
                     
             static::$instance[$identifier] = $object;
         }
