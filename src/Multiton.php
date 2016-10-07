@@ -24,6 +24,10 @@ trait Multiton {
         return static::$instance[$identifier];
     }
     
+    protected static function setInstance($identifier, $instance){
+        static::$instance[$identifier] = $instance;
+    }
+    
     public function __clone(){
         throw new Exception\MultitonException("Unable to clone a multiton object");
     }

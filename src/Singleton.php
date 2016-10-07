@@ -24,6 +24,10 @@ trait Singleton {
         return static::$instance;
     }
     
+    protected static function setInstance($instance){
+        static::$instance = $instance;
+    }
+    
     public function __clone(){
         throw new Exception\SingletonException("Unable to clone a singleton object");
     }
