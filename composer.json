@@ -4,10 +4,10 @@
     "version": "1.0.0",
     "type": "library",
     "keywords" : [
-        "MongoDB",
-        "ODM",
-        "PHP",
-        "Mapping"
+        "DesignPattern",
+        "Singleton",
+        "Multiton",
+        "Trait"
     ],
     "homepage" : "https://github.com/JoffreyPoreeCoding/DesignPattern",
     "license": "GPL-3.0",
