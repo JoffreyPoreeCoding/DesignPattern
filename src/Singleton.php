@@ -4,10 +4,12 @@ namespace JPC\DesignPattern;
 
 trait Singleton {
 
-    private static $instance;
+    protected static $instance;
 
-    public static function getInstance(...$params) {
+    public static function getInstance() {
         $class = get_called_class();
+        
+        $params = func_get_args();
 
         if (!isset(static::$instance)) {
             $reflection = new \ReflectionClass($class);

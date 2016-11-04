@@ -4,10 +4,12 @@ namespace JPC\DesignPattern;
 
 trait Multiton {
 
-    private static $instance = [];
+    protected static $instance = [];
 
-    public static function getInstance($identifier, ...$params) {
+    public static function getInstance($identifier) {
         $class = get_called_class();
+        
+        $params = array_slice(func_get_args(), 1);
 
         if (!isset(static::$instance[$identifier])) {
             $reflection = new \ReflectionClass($class);
