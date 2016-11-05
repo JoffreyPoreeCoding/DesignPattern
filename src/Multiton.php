@@ -14,6 +14,7 @@ trait Multiton {
         if (!isset(static::$instance[$identifier])) {
             $reflection = new \ReflectionClass($class);
             $constructor = $reflection->getConstructor();
+            $constructor->setAccessible(true);
 
             $object = $reflection->newInstanceWithoutConstructor();
 

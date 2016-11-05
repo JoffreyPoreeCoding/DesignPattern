@@ -5,6 +5,8 @@ namespace JPC\DesignPattern;
 trait Singleton {
 
     protected static $instance;
+    
+    protected abstract function __construct();
 
     public static function getInstance() {
         $class = get_called_class();
@@ -14,6 +16,7 @@ trait Singleton {
         if (!isset(static::$instance)) {
             $reflection = new \ReflectionClass($class);
             $constructor = $reflection->getConstructor();
+            $constructor->setAccessible(true);
 
             $object = $reflection->newInstanceWithoutConstructor();
 

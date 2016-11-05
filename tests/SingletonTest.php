@@ -31,7 +31,7 @@ class SingletonClass {
     
     public $value;
     
-    public function __construct($value) {
+    private function __construct($value) {
         $this->value = $value;
     }
 
