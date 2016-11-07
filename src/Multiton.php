@@ -8,17 +8,17 @@ trait Multiton {
 
     public static function getInstance($identifier) {
         $class = get_called_class();
-        
+
         $params = array_slice(func_get_args(), 1);
 
         if (!isset(static::$instance[$identifier])) {
             $reflection = new \ReflectionClass($class);
             $constructor = $reflection->getConstructor();
-            $constructor->setAccessible(true);
 
             $object = $reflection->newInstanceWithoutConstructor();
 
             if ($constructor != null) {
+                $constructor->setAccessible(true);
                 $constructor->invokeArgs($object, $params);
             }
 
@@ -39,4 +39,5 @@ trait Multiton {
     public function __wakeup() {
         throw new Exception\MultitonException("Unable to unserialize a multiton object");
     }
+
 }

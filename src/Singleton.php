@@ -5,20 +5,20 @@ namespace JPC\DesignPattern;
 trait Singleton {
 
     protected static $instance;
-    
+
     public static function getInstance() {
         $class = get_called_class();
-        
+
         $params = func_get_args();
 
         if (!isset(static::$instance)) {
             $reflection = new \ReflectionClass($class);
             $constructor = $reflection->getConstructor();
-            $constructor->setAccessible(true);
 
             $object = $reflection->newInstanceWithoutConstructor();
 
             if ($constructor != null) {
+                $constructor->setAccessible(true);
                 $constructor->invokeArgs($object, $params);
             }
 
