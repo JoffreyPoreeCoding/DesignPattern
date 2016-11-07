@@ -6,8 +6,6 @@ trait Singleton {
 
     protected static $instance;
     
-    protected abstract function __construct();
-
     public static function getInstance() {
         $class = get_called_class();
         
