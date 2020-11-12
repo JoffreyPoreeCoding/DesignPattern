@@ -2,11 +2,18 @@
 
 namespace JPC\DesignPattern;
 
-trait Singleton {
+trait Singleton
+{
 
     protected static $instance;
 
-    public static function getInstance() {
+    private function __construct()
+    {
+
+    }
+
+    public static function getInstance()
+    {
         $class = get_called_class();
 
         $params = func_get_args();
@@ -28,15 +35,18 @@ trait Singleton {
         return static::$instance;
     }
 
-    protected static function setInstance($instance) {
+    protected static function setInstance($instance)
+    {
         static::$instance = $instance;
     }
 
-    public function __clone() {
+    public function __clone()
+    {
         throw new Exception\SingletonException("Unable to clone a singleton object");
     }
 
-    public function __wakeup() {
+    public function __wakeup()
+    {
         if ($this->getInstance() != null) {
             throw new Exception\SingletonException("Unable to unserialize a singleton object");
         } else {

@@ -2,11 +2,18 @@
 
 namespace JPC\DesignPattern;
 
-trait Multiton {
+trait Multiton
+{
 
     protected static $instance = [];
 
-    public static function getInstance($identifier) {
+    private function __construct()
+    {
+
+    }
+
+    public static function getInstance($identifier)
+    {
         $class = get_called_class();
 
         $params = array_slice(func_get_args(), 1);
@@ -28,15 +35,18 @@ trait Multiton {
         return static::$instance[$identifier];
     }
 
-    protected static function setInstance($identifier, $instance) {
+    protected static function setInstance($identifier, $instance)
+    {
         static::$instance[$identifier] = $instance;
     }
 
-    public function __clone() {
+    public function __clone()
+    {
         throw new Exception\MultitonException("Unable to clone a multiton object");
     }
 
-    public function __wakeup() {
+    public function __wakeup()
+    {
         throw new Exception\MultitonException("Unable to unserialize a multiton object");
     }
 

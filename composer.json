@@ -3,13 +3,13 @@
     "description": "Simple Design Patter integration",
     "version": "1.0.4",
     "type": "library",
-    "keywords" : [
+    "keywords": [
         "DesignPattern",
         "Singleton",
         "Multiton",
         "Trait"
     ],
-    "homepage" : "https://github.com/JoffreyPoreeCoding/DesignPattern",
+    "homepage": "https://github.com/JoffreyPoreeCoding/DesignPattern",
     "license": "GPL-3.0",
     "authors": [
         {
@@ -19,20 +19,23 @@
     ],
     "support": {
         "email": "contact@joffreyporee.com",
-        "issues" : "https://github.com/JoffreyPoreeCoding/DesignPattern/issues"
+        "issues": "https://github.com/JoffreyPoreeCoding/DesignPattern/issues"
     },
     "require": {
         "php": ">=5.4"
     },
     "require-dev": {
-        "symfony/var-dumper": "*"
+        "symfony/var-dumper": "*",
+        "phpunit/phpunit": "^9.4"
     },
     "autoload": {
         "psr-4": {
             "JPC\\DesignPattern\\": "src/"
-        },
-        "psr-0": {
-            "JPC\\DesignPattern\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JPC\\DesignPattern\\Tests\\": "tests/"
         }
     }
 }
