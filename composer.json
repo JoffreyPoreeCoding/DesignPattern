@@ -1,7 +1,6 @@
 {
     "name": "jpc/design-pattern",
     "description": "Simple Design Patter integration",
-    "version": "1.0.4",
     "type": "library",
     "keywords": [
         "DesignPattern",
